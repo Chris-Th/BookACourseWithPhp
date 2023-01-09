@@ -150,14 +150,28 @@
 				<!-- Tel G. verification -->
 				<?php 
                 $telG = $_POST["telG"];
-                if (!preg_match($telInt, $telG) ) 
+                if (empty($_POST["telG"])) {
+					$telGEmpty = "Sie haben keine Geschäftsnummer angegeben<br>";
+					echo $telGEmpty;
+				  }
+				elseif (!preg_match($telInt, $telG) ) 
                 {
                   echo "Nummer im internationalen Format (+01 23 456 78 90) bitte!!!"; 
                 } 
                 else 
                 {
-                  echo $telG; 
+                  echo "Tel G.: $telG"; 
                 } ?><br>
+
+				<!--$birthdErr = "";
+				if (empty($_POST["birthdate"])) {
+					$birthdErr = "Bitte Geburtsdatum angeben<br>";
+					echo $birthdErr;
+				  } else {
+					$birthd = $_POST["birthdate"];
+					echo "Sie sind am $birthd
+					geboren.<br>";
+				  }*/-->
 
 
                 Email-Adresse: 
@@ -174,34 +188,69 @@
                 } ?><br>
 
 
-                Geburtsdatum: <?php echo $_POST["birthdate"]; ?><br>
-                
-				
-				
-				Versicherung: 
-				<!-- Versicherung (radio buttons) verification/feedback -->
+                <!-- Geburtsdatum verification -->
 				<?php
+				// $birthd = $_POST["birthdate"]; ?>
+                <?php
+				$birthdErr = "";
+				if (empty($_POST["birthdate"])) {
+					$birthdErr = "Bitte Geburtsdatum angeben<br>";
+					echo $birthdErr;
+				  } else {
+					$birthd = $_POST["birthdate"];
+					echo "Sie sind am $birthd
+					geboren.<br>";
+				  }
+				  ?>
+				
+				
+				<!-- Versicherung (radio buttons) verification/feedback -->
+				<?php /*
 				$checkedJa = $_POST["versJa"];
 				$checkedNein = $_POST["versNein"];
 
-				$checkedJa = false;
-				$checkedNein = false;
-
+				// $checkedJa = false;
+				// $checkedNein = false;
+				*/
 				
+
+				// $checkedJa = $_POST["versJa"];
+				// $checkedNein = $_POST["versNein"];
+				// $vers = $_POST["vers"];
+				
+				/*if ((isset($vers) && $vers == $checkedJa) || (isset($vers) && $vers == $checkedNein)) {
+					echo "Versicherung: Sie haben $vers
+					Versicherung abgeschlossen.<br>";
+				}
+				else {
+					echo "Bitte unter \"Versicherung\" eine Auswahl treffen!";
+				}*/
+
+				$versErr = "";
+				if (empty($_POST["vers"])) {
+					$versErr = "Bitte eine Angabe zur Versicherung machen!<br>";
+					echo $versErr;
+				  } else {
+					$vers = $_POST["vers"];
+					echo "Sie haben $vers
+					Versicherung abgeschlossen.<br>";
+				  }
+				
+				/*
 				if ($checkedJa) {
-					echo "Sie haben <?php echo $_POST["versJa"]; ?> Versicherung abgeschlossen."
+					echo "Sie haben $checkedJa Versicherung abgeschlossen.";
 				}
 				elseif ($checkedNein) {
-					echo 'Sie haben <?php echo $_POST["versNein"]; ?> Versicherung abgeschlossen.'
+					echo "Sie haben $checkedNein Versicherung abgeschlossen.";
 				}
 				else
 				{
 					echo 'Bitte bei "Annulationsversicherung" "ja" oder "nein" auswählen.'
-				} ?> <br>
-                </p> -->
-
+				} */ ?> <br>
+                </p> 
+				
               <!--
-                Form Data Cofirmation
+                Form Data Confirmation
                 <div id="dataConfirmation" role="alert"></div>
             
                 <script>const letters = /^[A-Za-z]+$/;
