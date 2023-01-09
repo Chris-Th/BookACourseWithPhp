@@ -48,7 +48,7 @@
                 $fname = $_POST["fname"];
                 if (!preg_match($letters, $fname) ) 
                 {
-                  echo "Liar!!";
+                  echo "Beim Vornamen bitte nur Buchstaben oder Leerschläge eingeben";
                 } 
                 else 
                 {
@@ -61,7 +61,7 @@
                 $lname = $_POST["lname"];
                 if (!preg_match($letters, $lname) ) 
                 {
-                  echo "reiss dich zusammen!"; 
+                  echo "Beim Nachnamen bitte nur Buchstaben oder Leerschläge eingeben"; 
                 } 
                 else 
                 {
@@ -74,7 +74,7 @@
 				$street = $_POST["street"];
 				if (!preg_match($letters, $street))
 				{
-					echo "Nur Buchstaben bitte!";	
+					echo "Beim Strassennamen nur Buchstaben oder Leerschläge eingeben";	
 				}
 				else
 				{
@@ -87,7 +87,7 @@
 				$streetNr = $_POST["streetNr"]; 
 				if (!preg_match($numbers, $streetNr))
 				{
-					echo "Bitte eine ganze Zahl angeben. Ein allfälliger Buchstabenzusatz können Sie im nächsten Feld eingeben";
+					echo "Als Hausnummer bitte eine ganze Zahl angeben. Ein allfälliger Buchstabenzusatz können Sie im nächsten Feld eingeben";
 				}
 				else
 				{
@@ -139,7 +139,7 @@
                 $telP = $_POST["telP"];
                 if (!preg_match($telInt, $telP) ) 
                 {
-                  echo "Nummer im internationalen Format (+01 23 456 78 90) bitte!!!"; 
+                  echo "Telefonnummer im internationalen Format (+01 23 456 78 90) bitte!!!"; 
                 } 
                 else 
                 {
@@ -156,7 +156,7 @@
 				  }
 				elseif (!preg_match($telInt, $telG) ) 
                 {
-                  echo "Nummer im internationalen Format (+01 23 456 78 90) bitte!!!"; 
+                  echo "Telefonnummer im internationalen Format (+01 23 456 78 90) bitte!!!"; 
                 } 
                 else 
                 {
