@@ -7,13 +7,13 @@
     <title>Booking Form</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="scripts/script.js"></script>
+  <!--<script src="scripts/script.js"></script>-->
   <link href="styles/style.css" rel="stylesheet">
   <link href="styles/home-styles.css" rel="stylesheet">
-  <script src="scripts/confirm-script.js"></script>
+  <!--<script src="scripts/confirm-script.js"></script>-->
 </head>
-<body onload="document.bookingForm.fname.focus();" class="d-flex h-100 text-center text-white bg-dark">
-
+<!--<body onload="document.bookingForm.fname.focus();" class="d-flex h-100 text-center text-white bg-dark">-->
+<body onload="" class="d-flex h-100 text-center text-white bg-dark">
 	<div class="cover-container d-flex w-100 h-100 my-0 px-0 py-3 mx-auto flex-column">
 		<header class="mb-auto">
 		  <div>
@@ -27,7 +27,11 @@
 			</div>
 		  </header>
 		  <main class="px-2 py-5 text-white bg-dark">
-            <form action="confirm.html" onsubmit="return validateForm()" id="bookingForm" name="bookingForm">
+
+            <!--<form action="confirm.html" onsubmit="return validateForm()" id="bookingForm" name="bookingForm">-->
+			
+			<form action="confirm.php" id="bookingForm" name="bookingForm" method="post">
+			
 
 				<!-- Vorname/Nachname-row-->
 			<div class="row">
@@ -110,10 +114,10 @@
 				<!-- Vers. Radio buttons-->
 				<div class="col-sm-6 mt-3">
 					<p>Haben Sie eine Annulationsversicherung abgeschlossen?</p>
-					<input class="form-check-input" type="radio" name="vers" id="versJa" value="Ja">
+					<input class="form-check-input" type="radio" name="vers" id="versJa" value="eine">
 					<label for="versJa">Ja</label>
 					<span>  </span>
-					<input class="form-check-input" type="radio" name="vers" id="versNein" value="Nein">
+					<input class="form-check-input" type="radio" name="vers" id="versNein" value="keine">
 					<label for="versNein">Nein</label><br>
 				</div>
 			</div>
