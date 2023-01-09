@@ -91,7 +91,7 @@
 				<!-- Email / Geburtsdatum - row -->
 			<div class="row">
 				<div class="col-sm-6 mt-3">
-					<input type="email" class="form-control" placeholder="Email-Adresse" name="email" id="email">
+					<input type="text" class="form-control" placeholder="Email-Adresse" name="email" id="email">
 				</div>
 				<div class="col-sm-6 mt-3">
 					<div class="row">
@@ -114,10 +114,10 @@
 				<!-- Vers. Radio buttons-->
 				<div class="col-sm-6 mt-3">
 					<p>Haben Sie eine Annulationsversicherung abgeschlossen?</p>
-					<input class="form-check-input" type="radio" name="vers" id="versJa" value="eine">
+					<input class="form-check-input" type="radio" name="versJa" id="versJa" value="eine">
 					<label for="versJa">Ja</label>
 					<span>  </span>
-					<input class="form-check-input" type="radio" name="vers" id="versNein" value="keine">
+					<input class="form-check-input" type="radio" name="versNein" id="versNein" value="keine">
 					<label for="versNein">Nein</label><br>
 				</div>
 			</div>

@@ -41,7 +41,10 @@
       <main class="p-5">
         <h5>Herzlichen Dank für Ihre Anmeldung!</h5>
                 <p>Sie haben bei Ihrer Anmeldung untenstehende Angaben genacht. Bitte prüfen Sie sie nochmals auf ihre Richtigkeit:<br>
-                Vorname: <?php 
+                
+				Vorname: 
+				<!-- Vorname verification -->
+				<?php 
                 $fname = $_POST["fname"];
                 if (!preg_match($letters, $fname) ) 
                 {
@@ -52,7 +55,9 @@
                   echo $fname;
                 } ?><br>
 
-                Nachname: <?php 
+                Nachname: 
+				<!-- Nachname verification -->
+				<?php 
                 $lname = $_POST["lname"];
                 if (!preg_match($letters, $lname) ) 
                 {
@@ -63,29 +68,137 @@
                   echo $lname; 
                 } ?><br>
 
+                Strasse: 
+				<!-- Strasse verification -->
+				<?php 
+				$street = $_POST["street"];
+				if (!preg_match($letters, $street))
+				{
+					echo "Nur Buchstaben bitte!";	
+				}
+				else
+				{
+					echo $street;
+				} ?><br>
 
-                Strasse: <?php echo $_POST["street"]; ?><br>
-                Nummer: <?php echo $_POST["streetNr"]; ?><br>
-                Nummernzusatz: <?php echo $_POST["nrAdd"]; ?><br>
-                PLZ: <?php echo $_POST["plz"]; ?><br>
-                Ort: <?php echo $_POST["ort"]; ?><br>
+                Nummer: 
+				<!-- Nummer verification -->
+				<?php 
+				$streetNr = $_POST["streetNr"]; 
+				if (!preg_match($numbers, $streetNr))
+				{
+					echo "Bitte eine ganze Zahl angeben. Ein allfälliger Buchstabenzusatz können Sie im nächsten Feld eingeben";
+				}
+				else
+				{
+					echo $streetNr;
+				} ?><br>
 
-                Tel.P: <?php 
+                Nummernzusatz: 
+				<!-- Nummernzusatz verification -->
+				<?php
+				$nrAdd = $_POST["nrAdd"]; 
+				if (!preg_match($oneLetter, $nrAdd))
+				{
+					echo "Bitte hier nur einen Buchstabenzusatz (z.B. \"a\") eingeben";
+				}
+				else
+				{
+					echo $nrAdd;
+				} ?><br>
+
+                PLZ: 
+				<!-- PLZ verification -->				
+				<?php
+				$plz = $_POST["plz"]; 
+				if (!preg_match($fourDigits, $plz))
+				{
+					echo "Bitte eine vierstellige Postleitzahl eingeben!";
+				}
+				else
+				{
+					echo $plz;
+				} ?><br>
+
+                Ort:
+				<!-- Ort verification -->
+				<?php
+				$ort = $_POST["ort"]; 
+				if (!preg_match($letters, $ort))
+				{
+					echo "Bitte Ortsnamen (nur Buchstaben) eingeben!";
+				}
+				else
+				{
+					echo $ort;
+				} ?><br>
+
+                Tel.P: 
+				<!-- Tel P. verification -->
+				<?php 
                 $telP = $_POST["telP"];
                 if (!preg_match($telInt, $telP) ) 
                 {
-                  echo "Nummer im internationalen Format bitte!!!"; 
+                  echo "Nummer im internationalen Format (+01 23 456 78 90) bitte!!!"; 
                 } 
                 else 
                 {
                   echo $telP; 
                 } ?><br>
                 
-                Tel.G: <?php echo $_POST["telG"]; ?><br>
-                Email-Adresse: <?php echo $_POST["email"]; ?><br>
+                Tel.G: 
+				<!-- Tel G. verification -->
+				<?php 
+                $telG = $_POST["telG"];
+                if (!preg_match($telInt, $telG) ) 
+                {
+                  echo "Nummer im internationalen Format (+01 23 456 78 90) bitte!!!"; 
+                } 
+                else 
+                {
+                  echo $telG; 
+                } ?><br>
+
+
+                Email-Adresse: 
+				<!-- email verification -->
+				<?php 
+                $email = $_POST["email"];
+                if (!preg_match($emailRegex, $email) ) 
+                {
+                  echo "Bitte eine gültige Email-Adresse eingeben!"; 
+                } 
+                else 
+                {
+                  echo $email; 
+                } ?><br>
+
+
                 Geburtsdatum: <?php echo $_POST["birthdate"]; ?><br>
-                Versicherung: Sie haben <?php echo $_POST["vers"]; ?> Versicherung abgeschlossen.<br>
-                </p>
+                
+				
+				
+				Versicherung: 
+				<!-- Versicherung (radio buttons) verification/feedback -->
+				<?php
+				$checkedJa = $_POST["versJa"];
+				$checkedNein = $_POST["versNein"];
+
+				$checkedJa = false;
+				$checkedNein = false;
+
+				
+				if ($checkedJa) {
+					echo "Sie haben <?php echo $_POST["versJa"]; ?> Versicherung abgeschlossen."
+				}
+				elseif ($checkedNein) {
+					echo 'Sie haben <?php echo $_POST["versNein"]; ?> Versicherung abgeschlossen.'
+				}
+				else
+				{
+					echo 'Bitte bei "Annulationsversicherung" "ja" oder "nein" auswählen.'
+				} ?> <br>
+                </p> -->
 
               <!--
                 Form Data Cofirmation
