@@ -1,3 +1,8 @@
+<?php 
+// start session
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,16 +35,23 @@
 
             <!--<form action="confirm.html" onsubmit="return validateForm()" id="bookingForm" name="bookingForm">-->
 			
+			<!--<form action="<? // php echo $_SERVER["PHP_SELF"];?>" id="bookingForm" name="bookingForm" method="post">-->
 			<form action="confirm.php" id="bookingForm" name="bookingForm" method="post">
 			
 
 				<!-- Vorname/Nachname-row-->
 			<div class="row">
 				<div class="col-sm mt-3">
+					<?php 
+					$_SESSION["fname"] = "";
+					?>
 					<input type="text" class="form-control" placeholder="Vorname" name="fname" id="fname">
+					<span class="error"> <?php $_SESSION["fNameErr"]  = ""; 
+					echo $_SESSION["fNameErr"]; ?></span>
 				</div>
 				<div class="col-sm mt-3">
 					<input type="text" class="form-control" placeholder="Nachname" name="lname" id="lname">
+					
 				</div>
 			</div>
 
@@ -93,7 +105,7 @@
 				<div class="col-sm-6 mt-3">
 					<input type="text" class="form-control" placeholder="Email-Adresse" name="email" id="email">
 				</div>
-				<div class="col-sm-6 mt-3">
+				<div class="col-sm-6 mt-3"> 
 					<div class="row">
 						<div class="col m-1">
 							<label for="birthdate">Geburtstag: </label>

@@ -45,14 +45,18 @@
 				Vorname: 
 				<!-- Vorname verification -->
 				<?php 
-                $fname = $_POST["fname"];
-                if (!preg_match($letters, $fname) ) 
+				
+                $_SESSION["fname"] = $_POST["fname"];
+				if (empty($_POST["fname"])) {
+					$_SESSION["fNameErr"] = "Bitte einen Vornamen eingeben.";
+				}
+                elseif (!preg_match($letters, $_SESSION["fname"]) ) 
                 {
                   echo "Beim Vornamen bitte nur Buchstaben oder Leerschläge eingeben";
                 } 
                 else 
                 {
-                  echo $fname;
+                  echo $_SESSION["fname"];
                 } ?><br>
 
                 Nachname: 
